@@ -26,9 +26,13 @@
                         <span class="accent">Web</span>Studio  
                     </a>
                     <ul class="site-nav-list">
-                        <li class="item-list"><a href="./index.html" lang="en" class="link nav-link current">Студия</a></li>
-                        <li class="item-list"><a href="./portfolio.html" lang="en" class="link nav-link">Портфолио</a></li>
-                        <li class="item-list"><a href="" class="link nav-link">Контакты</a></li>          
+                        <li class="item-list nav-item">
+                            <div class="nav-item-current">
+                            <a href="./index.html" lang="en" class="link nav-link current">Студия</a>
+                        </div>
+                    </li>
+                        <li class="item-list nav-item"><a href="./portfolio.html" lang="en" class="link nav-link">Портфолио</a></li>
+                        <li class="item-list nav-item"><a href="" class="link nav-link">Контакты</a></li>          
                     </ul>
                 </nav>
                 <ul class="contacts-list">
@@ -58,7 +62,7 @@
             <section class="hero">
                 <div class="container">
                     <h1 class=hero-title>Эффективные решения для вашего бизнеса</h1>
-                    <button type="button" class="button primery"> Заказать услугу </button>
+                    <button type="button" class="button primery" data-modal-open> Заказать услугу </button>
                 </div>
             </section>
 
@@ -120,14 +124,17 @@
                 <div class="container">
                     <h2  class="section-title">Чем мы занимаемся</h2>
                     <ul class="box-section-list list">
-                        <li class="item-list">
-                            <img class="image-box image" src="./images/box-1.jpg" alt="Работа на ПК" width="370" height="294" />          
+                        <li class="item-list box-item">
+                            <img class="image-box image" src="./images/box-1.jpg" alt="Работа на ПК" width="370" height="294" />
+                            <h3 class="box-subtitle">Десктопные приложения</h3>
                         </li>
-                        <li class="item-list">
+                        <li class="item-list box-item">
                             <img class="image-box image" src="./images/box-2.jpg" alt="Работа на ноутбуке и смартфоне" width="370" height="294"/>
+                            <h3 class="box-subtitle">Мобильные приложения</h3>
                         </li>
-                        <li class="item-list">
+                        <li class="item-list box-item">
                             <img class="image-box image" src="./images/box-3.jpg" alt="Работа на планшете" width="370" height="294"/>
+                            <h3 class="box-subtitle">Дизайнерские решения</h3>
                         </li>
                     </ul>
                 </div>
@@ -395,7 +402,19 @@
                     </ul>
                 </div>
             </div>
-        </footer>    
+        </footer>
 
+        <!-- Модальное окно -->
+        <div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+                <button class="modal-button" data-modal-close>
+                    <svg class="modal-icon icon" width="11px" height="11px">
+                        <use href="./images/icons.svg#icon-close"></use> 
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <script src="./js/modal.js"></script>
     </body>    
 </html>
