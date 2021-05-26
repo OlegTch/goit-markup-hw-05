@@ -12,7 +12,7 @@
   --nav-set-gap: 50px;
   --icon-color: #AFB1B8;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration: 250ms;
+  --duration: 250ms; /* 250ms; */
 }
 
 body {
@@ -293,7 +293,7 @@ ul, ol {
   border-radius: 4px;
   border: 0; /* Альтернатива рамка прозрачная border: 1px; solid: transparent*/
 
-  transition-property: color background-color;  
+  transition-property: color, background-color, box-shadow;  
   transition-duration: var(--duration);
   transition-timing-function: var(--timing-function);
 }
@@ -413,15 +413,13 @@ ul, ol {
   position: relative;
 }
 
-.box-item:hover > .box-subtitle{
+/* .box-item:hover > .box-subtitle{
   opacity: 1;
-  /* display: block; */
-  }
+  } */
 
  .box-subtitle {
-  position: absolute;
-  opacity: 0;
-  /* display: none;  */
+  position: absolute;  
+  /* opacity: 0; */  
   width: 100%;
   padding: 27px;
   left: 0;
@@ -434,10 +432,9 @@ ul, ol {
   line-height: 1.14;
   text-transform: uppercase;
   color: var(--primary-white-color);
-
-  transition-property: color background-color;  
+/* transition-property: color, background-color;  
   transition-duration: var(--duration);
-  transition-timing-function: var(--timing-function);
+  transition-timing-function: var(--timing-function); */
  }
 
 /*========== end секция чем мы занимаемся ==========*/
@@ -504,7 +501,7 @@ height: 44px;
 fill: var(--icon-color);
 border-radius: 50%; /*для плавного перехода при hover*/
 
-transition-property: color background-color;  
+transition-property: fill, background-color;  
   transition-duration: var(--duration);
   transition-timing-function: var(--timing-function);  
 }
@@ -534,7 +531,7 @@ transition-property: color background-color;
 /* box-sizing: border-box; */
 border-radius: 4px;  
 
-transition-property: fill;  
+transition-property: fill, border;  
   transition-duration: var(--duration);
   transition-timing-function: var(--timing-function);
 }
@@ -572,7 +569,14 @@ transition-property: fill;
 /*========== секция портфолио ==========*/
 
 .work-section-list > .item-list {
-  flex-basis: calc(100% / 3 - var(--image-set-gap));
+  flex-basis: calc(100% / 3 - var(--image-set-gap));  
+}
+
+/*плавная тень на портфолио*/
+.work-section-list>.item-list {  
+  transition-property: box-shadow;
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .work-title {
@@ -604,13 +608,7 @@ transition-property: fill;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.work-image-thumb {
-  /* display: flex;
-   justify-content: center;
-  align-items: center; */
-
-  /* text-align: center; */
-
+.work-image-thumb {  
   position: relative;
   overflow: hidden;    
 }
@@ -710,6 +708,10 @@ transition-property: fill;
 .footer-link {
   color: var(--contacts-text-color);
   text-decoration: none;
+
+  transition-property: color;  
+  transition-duration: var(--duration);
+  transition-timing-function: var(--timing-function);
 }
 
 .footer-link:hover,
@@ -759,19 +761,20 @@ color: var(--primary-white-color);
   background: rgba(0, 0, 0, 0.2);  
   
   opacity: 1;
+  visibility: visible;
 
-  transition: opacity 250ms var(--timing-function);
+  transition: opacity 250ms var(--timing-function), visibility 250ms var(--timing-function);
 }
 
  .backdrop.is-hidden {  /* скрываем модальное окно */
   opacity: 0;  /* делаем прозрачный фон */
   pointer-events: none; /* на элемент не влияет клик мышки  */
-  visibility: hidden; /* скрывает модальное окно */
-}
+  visibility: hidden; /* скрывает модальное окно */ 
+  }
 
 .backdrop.is-hidden .modal {
   transform:  translate(-50%, -50%) scale(0.1);
-}
+  }
 
 .modal {    
   position: absolute;
@@ -780,7 +783,7 @@ color: var(--primary-white-color);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  /* transform: scale(1); перебет позицианирование transform: translate(-50%, -50%), писать в одном transform */
+  /* transform: scale(1); перебивает позицианирование transform: translate(-50%, -50%), писать в одном transform */
 
   min-height: 528px;
   min-width: 581px;
@@ -795,20 +798,18 @@ transition: transform 250ms var(--timing-function);
 }
 
 .modal-button {  
-  /* justify-content: center;
-  align-items: center;  */
   width: 30px;
   height: 30px;
 
   cursor: pointer;
 
+  fill: var(--primary-black-color);
   background-color: var(--primary-white-color);
   border:  1px solid rgba(0, 0, 0, 0.1) ; 
-  border-radius: 50%;
-  
+  border-radius: 50%;  
 
- transition-property: color background-color;  
-  transition-duration: 250px; /* ? */
+ transition-property: fill;  
+  transition-duration: 250ms; /* ? */
   transition-timing-function: var(--timing-function);
 }
 
@@ -816,6 +817,8 @@ transition: transform 250ms var(--timing-function);
 .modal-button:focus {
   fill: var(--accent-color);
 }
+
+
 
 /*========== END  Модальное окно ==========  */
 
