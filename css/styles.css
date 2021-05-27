@@ -631,7 +631,8 @@ transition-property: fill, border;
   transition-timing-function: var(--timing-function);
 }
 
-.work-link:hover .work-overlay {
+.work-link:hover .work-overlay,
+.work-link:focus .work-overlay {
   opacity: 0.9;
   transform: translateY(0);  
 }
@@ -655,7 +656,8 @@ transition-property: fill, border;
   color: var(--primary-white-color);
 }
 
-.work-link:hover .hidden-work-text{
+.work-link:hover .hidden-work-text,
+.work-link:focus .hidden-work-text{
   opacity: 1;
   }
 
@@ -762,6 +764,7 @@ color: var(--primary-white-color);
   
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 
   transition: opacity 250ms var(--timing-function), visibility 250ms var(--timing-function);
 }
@@ -800,6 +803,7 @@ transition: transform 250ms var(--timing-function);
 .modal-button {  
   width: 30px;
   height: 30px;
+  padding: 0;
 
   cursor: pointer;
 
